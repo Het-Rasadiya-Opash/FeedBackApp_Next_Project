@@ -39,12 +39,10 @@ export default function SignInForm() {
         if (result?.error) {
             if (result.error === 'CredentialsSignin') {
                 toast('Login Failed', {
-
                     description: 'Incorrect username or password',
                 });
             } else {
                 toast('Error', {
-
                     description: result.error,
                 });
             }
