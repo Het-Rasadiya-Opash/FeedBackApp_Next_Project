@@ -9,23 +9,33 @@ function Navbar() {
     const user: User = session?.user as User;
 
     return (
-        <nav className="p-4 md:p-6 shadow-md bg-gray-900 text-white">
-            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-                <a href="#" className="text-xl font-bold mb-4 md:mb-0">
-                    True Feedback
+        <nav className="sticky top-0 z-50 border-b border-slate-800 bg-slate-900/95 backdrop-blur supports-backdrop-filter:bg-slate-900/80">
+            <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+                <a href="#" className="text-lg font-bold text-white tracking-tight">
+                    True<span className="text-indigo-400">Feedback</span>
                 </a>
                 {session ? (
-                    <>
-                        <span className="mr-4">
-                            Welcome, {user.username || user.email}
-                        </span>
-                        <Button onClick={() => signOut()} className="w-full md:w-auto bg-slate-100 text-black" variant='outline'>
+                    <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-3 py-1.5">
+                            <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                                {(user.username || user.email || 'U')[0].toUpperCase()}
+                            </div>
+                            <span className="text-sm text-slate-300 hidden sm:block max-w-30 truncate">
+                                {user.username || user.email}
+                            </span>
+                        </div>
+                        <Button
+                            onClick={() => signOut()}
+                            variant="outline"
+                            size="sm"
+                            className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
+                        >
                             Logout
                         </Button>
-                    </>
+                    </div>
                 ) : (
                     <Link href="/sign-in">
-                        <Button className="w-full md:w-auto bg-slate-100 text-black" variant={'outline'}>Login</Button>
+                        <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">Login</Button>
                     </Link>
                 )}
             </div>

@@ -54,45 +54,59 @@ export default function SignInForm() {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-800">
-            <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
-                <div className="text-center">
-                    <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-                        Welcome Back to True Feedback
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
+            <div className="w-full max-w-md">
+                {/* Logo */}
+                <div className="text-center mb-8">
+                    <h1 className="text-2xl font-bold text-white tracking-tight">
+                        True<span className="text-indigo-400">Feedback</span>
                     </h1>
-                    <p className="mb-4">Sign in to continue your secret conversations</p>
+                    <p className="text-slate-400 text-sm mt-2">Sign in to continue your secret conversations</p>
                 </div>
-                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                        <FormField
-                            name="identifier"
-                            control={form.control}
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Email/Username</FormLabel>
-                                    <Input {...field} />
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            name="password"
-                            control={form.control}
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Password</FormLabel>
-                                    <Input type="password" {...field} />
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <Button className='w-full' type="submit">Sign In</Button>
-                    </form>
-                </Form>
-                <div className="text-center mt-4">
-                    <p>
+
+                <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 shadow-xl backdrop-blur">
+                    <h2 className="text-xl font-semibold text-white mb-6">Welcome back</h2>
+                    <Form {...form}>
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                            <FormField
+                                name="identifier"
+                                control={form.control}
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="text-slate-300 text-sm">Email or Username</FormLabel>
+                                        <Input
+                                            {...field}
+                                            placeholder="you@example.com"
+                                            className="bg-slate-900/60 border-slate-600 text-white placeholder:text-slate-500 focus-visible:ring-indigo-500"
+                                        />
+                                        <FormMessage className="text-red-400" />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                name="password"
+                                control={form.control}
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="text-slate-300 text-sm">Password</FormLabel>
+                                        <Input
+                                            type="password"
+                                            {...field}
+                                            placeholder="••••••••"
+                                            className="bg-slate-900/60 border-slate-600 text-white placeholder:text-slate-500 focus-visible:ring-indigo-500"
+                                        />
+                                        <FormMessage className="text-red-400" />
+                                    </FormItem>
+                                )}
+                            />
+                            <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white mt-2" type="submit">
+                                Sign In
+                            </Button>
+                        </form>
+                    </Form>
+                    <p className="text-center text-sm text-slate-400 mt-6">
                         Not a member yet?{' '}
-                        <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
+                        <Link href="/sign-up" className="text-indigo-400 hover:text-indigo-300 font-medium">
                             Sign up
                         </Link>
                     </p>
