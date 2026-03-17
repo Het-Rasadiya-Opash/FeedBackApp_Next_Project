@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -14,8 +15,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
 import { signInSchema } from '@/schemas/signInSchema';
+import { toast } from 'sonner';
 
 export default function SignInForm() {
     const router = useRouter();
@@ -38,10 +39,12 @@ export default function SignInForm() {
         if (result?.error) {
             if (result.error === 'CredentialsSignin') {
                 toast('Login Failed', {
+
                     description: 'Incorrect username or password',
                 });
             } else {
                 toast('Error', {
+
                     description: result.error,
                 });
             }
@@ -100,4 +103,3 @@ export default function SignInForm() {
         </div>
     );
 }
-
