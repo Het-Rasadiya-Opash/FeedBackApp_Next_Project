@@ -96,7 +96,7 @@ export default function SignUpForm() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
+        <div className="min-h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
             <div className="w-full max-w-md">
                 {/* Logo */}
                 <div className="text-center mb-8">
@@ -122,7 +122,7 @@ export default function SignUpForm() {
                                             onChange={(e) => { field.onChange(e); setUsername(e.target.value); }}
                                             className="bg-slate-900/60 border-slate-600 text-white placeholder:text-slate-500 focus-visible:ring-indigo-500"
                                         />
-                                        <div className="min-h-[18px]">
+                                        <div className="min-h-4.5">
                                             {isCheckingUsername && (
                                                 <Loader2 className="animate-spin h-3.5 w-3.5 text-slate-400" />
                                             )}
